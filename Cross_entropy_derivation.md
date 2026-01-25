@@ -18,9 +18,7 @@ title: "从伯努利分布推导交叉熵"
 
 我们假设标签 \( y \) 遵循 **伯努利分布**，概率质量函数如下：
 
-$$
-P(y \mid \hat{y}) = \hat{y}^y (1 - \hat{y})^{1 - y}
-$$
+$$P(y \mid \hat{y}) = \hat{y}^y (1 - \hat{y})^{1 - y}$$
 
 ---
 
@@ -28,9 +26,7 @@ $$
 
 我们的目标是最大化这个观测值的概率，也就是最大化似然函数：
 
-$$
-\mathcal{L}(\hat{y}) = P(y \mid \hat{y}) = \hat{y}^y (1 - \hat{y})^{1 - y}
-$$
+$$\mathcal{L}(\hat{y}) = P(y \mid \hat{y}) = \hat{y}^y (1 - \hat{y})^{1 - y}$$
 
 ---
 
@@ -38,9 +34,7 @@ $$
 
 为了便于求导和优化，我们对似然函数取对数：
 
-$$
-\log \mathcal{L}(\hat{y}) = y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})
-$$
+$$\log \mathcal{L}(\hat{y}) = y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})$$
 
 这是我们想要最大化的 log-likelihood。
 
@@ -50,15 +44,13 @@ $$
 
 在深度学习中，我们通常通过 **最小化损失函数** 训练模型。于是我们取负号，得到 **交叉熵损失**：
 
-$$
-\mathcal{L}_{\text{CE}} = - \left[ y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right]
-$$
+$$\mathcal{L}_{\text{CE}} = - \left[ y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right]$$
 
 ---
 
 # 5️⃣ 直观解释
 
-- 当 \( y = 1 \) 时：
+- 当 $\( y = 1 \$ 时：
 
   $$
   \mathcal{L}_{\text{CE}} = -\log(\hat{y})
@@ -66,7 +58,7 @@ $$
 
   → 希望模型预测 \( \hat{y} \) 越接近 1 越好。
 
-- 当 \( y = 0 \) 时：
+- 当 $\( y = 0 \)$ 时：
 
   $$
   \mathcal{L}_{\text{CE}} = -\log(1 - \hat{y})
