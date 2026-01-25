@@ -50,21 +50,17 @@ $$\mathcal{L}_{\text{CE}} = - \left[ y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})
 
 # 5️⃣ 直观解释
 
-- 当 $\( y = 1 \$ 时：
+- 当 $y = 1$ 时：
 
-  $$
-  \mathcal{L}_{\text{CE}} = -\log(\hat{y})
-  $$
+  $$\mathcal{L}_{\text{CE}} = -\log(\hat{y})$$
 
-  → 希望模型预测 \( \hat{y} \) 越接近 1 越好。
+  → 希望模型预测 $\( \hat{y} \)$ 越接近 1 越好。
 
-- 当 $\( y = 0 \)$ 时：
+- 当 $y = 0$ 时：
 
-  $$
-  \mathcal{L}_{\text{CE}} = -\log(1 - \hat{y})
-  $$
+  $$\mathcal{L}_{\text{CE}} = -\log(1 - \hat{y})$$
 
-  → 希望模型预测 \( \hat{y} \) 越接近 0 越好。
+  → 希望模型预测 $\( \hat{y} \)$ 越接近 0 越好。
 
 ---
 
