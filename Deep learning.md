@@ -7,9 +7,7 @@
 **ReLU (Rectified Linear Unit)** is one of the most commonly used activation functions in deep neural networks.
 
 **Definition:**
-$$
-\text{ReLU}(x) = \max(0, x)
-$$
+$$\text{ReLU}(x) = \max(0, x)$$
 
 **Advantages:**
 - Sparse activation
@@ -35,11 +33,11 @@ $$
 
 | Activation | Formula | Use Case |
 |------------|---------|----------|
-| **ReLU** | \( \max(0, x) \) | Default for hidden layers |
-| **Sigmoid** | \( \frac{1}{1 + e^{-x}} \) | Output layer for binary classification |
-| **Tanh** | \( \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} \) | Hidden layers for zero-centered outputs |
-| **Leaky ReLU** | \( \max(\alpha x, x) \), \( \alpha \approx 0.01 \) | Avoids dead neurons |
-| **GELU (Gaussian Error Linear Unit)** | \( x \cdot \Phi(x) \) | Used in Transformers (e.g., BERT) for smoother activation |
+| **ReLU** | $\( \max(0, x) \)$ | Default for hidden layers |
+| **Sigmoid** | $\( \frac{1}{1 + e^{-x}} \)$ | Output layer for binary classification |
+| **Tanh** | $\( \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} \)$ | Hidden layers for zero-centered outputs |
+| **Leaky ReLU** | $\( \max(\alpha x, x) \), \( \alpha \approx 0.01 \)$ | Avoids dead neurons |
+| **GELU (Gaussian Error Linear Unit)** | $\( x \cdot \Phi(x) \)$ | Used in Transformers (e.g., BERT) for smoother activation |
 
 **Tip:** Use **ReLU** by default, switch to **GELU** in transformer-style architectures.
 
@@ -50,9 +48,7 @@ $$
 **Fully connected (FC) layers** (also called **dense layers**) are layers where **each neuron is connected to every neuron in the previous layer**.
 
 Mathematically:
-$$
-\mathbf{z} = \mathbf{W} \cdot \mathbf{x} + \mathbf{b}
-$$
+$$\mathbf{z} = \mathbf{W} \cdot \mathbf{x} + \mathbf{b}$$
 
 - Common in MLPs (multi-layer perceptrons)
 - Usually appear after convolutional layers in CNNs
@@ -67,13 +63,9 @@ Proper weight **initialization** ensures that:
 
 **Common initialization methods:**
 - **Xavier/Glorot** (for tanh/sigmoid):
-  $$
-  \text{Var}(W) = \frac{1}{n_{in} + n_{out}}
-  $$
+  $$\text{Var}(W) = \frac{1}{n_{in} + n_{out}}$$
 - **He Initialization** (for ReLU):
-  $$
-  \text{Var}(W) = \frac{2}{n_{in}}
-  $$
+  $$\text{Var}(W) = \frac{2}{n_{in}}$$
 
 Bad initialization leads to poor convergence and unstable training.
 
@@ -84,9 +76,7 @@ Bad initialization leads to poor convergence and unstable training.
 **Dropout** is a regularization technique that randomly sets a fraction of neurons' outputs to zero during training.
 
 At each iteration:
-$$
-\text{Dropout}(x) = x \cdot \mathbf{m}, \quad \mathbf{m} \sim \text{Bernoulli}(p)
-$$
+$$\text{Dropout}(x) = x \cdot \mathbf{m}, \quad \mathbf{m} \sim \text{Bernoulli}(p)$$
 
 **Purpose:**
 - Prevents co-adaptation of neurons
@@ -101,11 +91,9 @@ During inference, dropout is **turned off** and weights are scaled accordingly.
 
 - **Epoch**: One full pass over the entire training dataset.
 - **Batch**: A subset of training data used in one forward/backward pass.
-- **Iteration**: One update step; if batch size is \( B \) and dataset has \( N \) samples:
+- **Iteration**: One update step; if batch size is $\( B \)$ and dataset has $\( N \)$ samples:
 
-  $$
-  \text{Iterations per epoch} = \frac{N}{B}
-  $$
+  $$\text{Iterations per epoch} = \frac{N}{B}$$
 
 ---
 
@@ -131,9 +119,7 @@ During inference, dropout is **turned off** and weights are scaled accordingly.
 
 **RNN formula (simplified):**
 
-$$
-h_t = \sigma(W x_t + U h_{t-1} + b)
-$$
+$$h_t = \sigma(W x_t + U h_{t-1} + b)$$
 
 ---
 
