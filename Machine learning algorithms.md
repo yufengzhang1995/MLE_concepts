@@ -37,14 +37,10 @@ A Decision Tree recursively splits the data based on feature values to maximize 
 **Splitting criteria examples:**
 
 - Gini impurity:
-  $$
-  Gini = 1 - \sum_{i=1}^{C} p_i^2
-  $$
+  $$Gini = 1 - \sum_{i=1}^{C} p_i^2$$
   
 - Entropy:
-  $$
-  Entropy = -\sum_{i=1}^{C} p_i \log_2(p_i)
-  $$
+  $$Entropy = -\sum_{i=1}^{C} p_i \log_2(p_i)$$
 
 ---
 
