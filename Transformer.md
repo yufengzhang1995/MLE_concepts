@@ -3,6 +3,68 @@
 Notion link: https://www.notion.so/chloezh1995/Transformer-e1ef29dc01d145b689b329a8a0ab9de5?source=copy_link
 ---
 
+## 📌 1. BatchNorm relies on batch statistics — problematic in NLP
+
+BatchNorm normalizes using the **mean and variance across the batch dimension**:
+
+$$
+\mu = \frac{1}{m} \sum_{i=1}^{m} x_i,\quad \sigma^2 = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu)^2
+$$
+
+- NLP tasks often use **small batch sizes** or even **batch size = 1** during generation.
+- **Sequence lengths vary**, making batch statistics unstable.
+- This leads to noisy or ineffective normalization.
+
+---
+
+### 📌 2. LayerNorm is independent of batch size
+
+LayerNorm computes statistics across the **feature dimension** for **each token vector independently**:
+
+$$
+\mu = \frac{1}{d} \sum_{j=1}^{d} x_j,\quad \sigma^2 = \frac{1}{d} \sum_{j=1}^{d} (x_j - \mu)^2
+$$
+
+- Works well with **variable-length sequences**
+- Consistent behavior across **different batch sizes**
+- Stable even when **batch size = 1**
+
+---
+
+### 📌 3. Transformer architecture differs from CNNs
+
+- BatchNorm was designed for **convolutional networks (images)** with fixed shapes and large batches.
+- **Transformers** use:
+  - Fully connected layers
+  - Attention across **tokens** (not pixels)
+  - No spatial locality
+- LayerNorm suits this structure better.
+
+---
+
+### 📌 4. BatchNorm breaks autoregressive generation
+
+During inference in language models:
+- We generate tokens **one at a time**
+- Often using **batch size = 1**
+- BatchNorm becomes **meaningless or unstable**
+
+LayerNorm continues to function correctly without relying on batch statistics.
+
+---
+
+### ✅ Summary Table
+
+| Feature                     | BatchNorm               | LayerNorm                   |
+|----------------------------|-------------------------|-----------------------------|
+| Normalization axis         | Across batch            | Across features (per token) |
+| Sensitive to batch size    | ✅ Yes                  | ❌ No                        |
+| Suitable for sequence data | ❌ No                   | ✅ Yes                       |
+| Used in Transformers       | ❌ Rarely               | ✅ Always                    |
+| Works with batch size = 1  | ❌ No                   | ✅ Yes                       |
+
+---
+
 ## ✅ Why do we divide the attention score by √dₖ in the Transformer?
 
 In scaled dot-product attention, the attention score is:
