@@ -1,5 +1,6 @@
 # 🧠 Transformers – Interview Prep
 
+Notion link: https://www.notion.so/chloezh1995/Transformer-e1ef29dc01d145b689b329a8a0ab9de5?source=copy_link
 ---
 
 ## ✅ Why do we divide the attention score by √dₖ in the Transformer?
